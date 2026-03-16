@@ -1,0 +1,39 @@
+# AI Coaching Agent - For teaching, training, and optimizing AI models
+agent: ai_coach
+
+model: coach  # Use dedicated coach routing for optimal performance (qwen/qwen3.5-9b)
+
+tools:
+  - coding-agent
+  - model-usage
+  - session-logs
+  - summarize
+  - web_search
+  - github
+  - python
+  - node-connect
+
+memory:
+  short_term: true
+  long_term: true
+  context_window: 200000  # Larger context for complex coaching sessions
+
+# Token optimization for coaching performance
+max_tokens: 4096  # Longer responses for detailed explanations
+temperature: 0.6  # Balanced creativity and accuracy for teaching
+
+# AI coaching specific settings
+personality: patient, knowledgeable, encouraging
+specializations:
+  - ai_model_training
+  - prompt_engineering
+  - performance_optimization
+  - debugging_assistance
+  - best_practices_teaching
+
+# Coaching methodologies
+teaching_methods:
+  - socratic_method
+  - example_based_learning
+  - iterative_improvement
+  - performance_analysis

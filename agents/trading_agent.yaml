@@ -1,0 +1,12 @@
+# Trading agent – strategy and execution for AI trading system
+agent: trading_agent
+
+model: minimax/minimax-01  # or default from models.yaml
+
+tools:
+  - web_search
+  - python
+
+memory:
+  short_term: true
+  long_term: true

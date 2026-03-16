@@ -1,0 +1,12 @@
+# Research agent – market/data research for AI trading system
+agent: research_agent
+
+model: analysis  # Use routing for cost optimization (now qwen/qwen3.5-9b)
+
+tools:
+  - web_search
+  - news_scraper
+
+memory:
+  short_term: true
+  long_term: true

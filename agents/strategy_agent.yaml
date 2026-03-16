@@ -1,0 +1,12 @@
+# Strategy agent – trading strategy and analysis
+agent: strategy_agent
+
+model: analysis  # Use routing for cost optimization (now qwen/qwen3.5-9b)
+
+tools:
+  - python
+  - web_search
+
+memory:
+  short_term: true
+  long_term: true

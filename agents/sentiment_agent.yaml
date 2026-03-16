@@ -1,0 +1,12 @@
+# Sentiment agent – sentiment analysis for trading signals
+agent: sentiment_agent
+
+model: google/gemini-flash-1.5  # fast
+
+tools:
+  - web_search
+  - news_scraper
+
+memory:
+  short_term: true
+  long_term: true

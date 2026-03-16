@@ -1,0 +1,12 @@
+# Product agent – AI product factory
+agent: product_agent
+
+model: deepseek/deepseek-chat
+
+tools:
+  - python
+  - web_search
+
+memory:
+  short_term: true
+  long_term: true

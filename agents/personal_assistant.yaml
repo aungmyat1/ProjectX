@@ -1,0 +1,34 @@
+# Personal Assistant Agent - Optimized for daily tasks and productivity
+agent: personal_assistant
+
+model: assistant  # Use dedicated assistant routing for optimal performance (google/gemini-flash-1.5)
+
+tools:
+  - web_search
+  - apple-notes
+  - apple-reminders
+  - things-mac
+  - notion
+  - obsidian
+  - weather
+  - spotify-player
+  - summarize
+  - calendar
+  - email
+
+memory:
+  short_term: true
+  long_term: true
+  context_window: 100000  # Optimized context for personal conversations
+
+# Token optimization for performance
+max_tokens: 2048  # Shorter responses for faster interaction
+temperature: 0.8  # Creative but focused responses
+
+# Personal assistant specific settings
+personality: helpful, efficient, proactive
+specializations:
+  - daily_task_management
+  - information_retrieval
+  - productivity_optimization
+  - personal_organization

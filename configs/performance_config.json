@@ -1,0 +1,79 @@
+# ClawX Gateway Configuration for Personal Assistant & AI Coaching
+# Optimized token usage for suitable performance
+
+{
+  "agents": {
+    "defaults": {
+      // Context compaction for efficient memory usage
+      "compaction": {
+        "enabled": true,
+        "targetTokens": 75000,
+        "model": "qwen/qwen3.5-9b",
+        "autoCompact": true
+      },
+
+      // Memory optimization
+      "memory": {
+        "shortTermLimit": 50000,
+        "longTermEnabled": true,
+        "autoFlush": true
+      },
+
+      // Token usage monitoring
+      "tokenMonitoring": {
+        "enabled": true,
+        "alertThreshold": 100000,
+        "logUsage": true
+      }
+    },
+
+    // Personal Assistant specific optimizations
+    "personal_assistant": {
+      "maxTokens": 2048,
+      "temperature": 0.8,
+      "contextWindow": 100000,
+      "responseTimeTarget": 2000, // 2 second target for fast responses
+
+      "tools": {
+        "web_search": { "maxResults": 5, "timeout": 3000 },
+        "summarize": { "maxLength": 500, "model": "qwen/qwen3.5-9b" }
+      }
+    },
+
+    // AI Coach specific optimizations
+    "ai_coach": {
+      "maxTokens": 4096,
+      "temperature": 0.6,
+      "contextWindow": 200000,
+      "teachingMode": true,
+
+      "tools": {
+        "coding-agent": { "timeout": 10000, "maxIterations": 3 },
+        "model-usage": { "detailed": true, "history": 30 },
+        "session-logs": { "maxEntries": 50, "summarize": true }
+      }
+    }
+  },
+
+  // Provider optimizations
+  "providers": {
+    "openrouter": {
+      "timeout": 10000,
+      "retryAttempts": 2,
+      "rateLimit": {
+        "requestsPerMinute": 60,
+        "burstLimit": 10
+      }
+    }
+  },
+
+  // Performance monitoring
+  "monitoring": {
+    "enabled": true,
+    "metrics": ["response_time", "token_usage", "error_rate"],
+    "alerts": {
+      "highTokenUsage": 50000,
+      "slowResponse": 5000
+    }
+  }
+}

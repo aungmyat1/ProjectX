@@ -1,0 +1,11 @@
+# OpenRouter provider for ClawX / OpenClaw
+# Set OPENROUTER_API_KEY in .env or ClawX Settings → Providers
+# Optimized for token usage with cheaper default model
+
+provider: openrouter
+base_url: https://openrouter.ai/api/v1
+model: qwen/qwen3.5-9b  # Ultra-cheap default ($0.05 input, $0.15 output)
+
+# Token optimization settings
+max_tokens: 4096  # Limit response length to save tokens
+temperature: 0.7  # Balanced creativity vs cost

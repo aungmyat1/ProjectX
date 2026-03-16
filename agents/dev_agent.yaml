@@ -1,0 +1,12 @@
+# Dev agent – coding and product development
+agent: dev_agent
+
+model: deepseek/deepseek-chat  # or use routing: coding
+
+tools:
+  - python
+  - web_search
+
+memory:
+  short_term: true
+  long_term: true

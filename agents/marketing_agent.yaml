@@ -1,0 +1,11 @@
+# Marketing agent – marketing and outreach
+agent: marketing_agent
+
+model: google/gemini-flash-1.5
+
+tools:
+  - web_search
+
+memory:
+  short_term: true
+  long_term: true

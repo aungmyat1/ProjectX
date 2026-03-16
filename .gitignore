@@ -1,0 +1,64 @@
+# Top-level ignores for ProjectX
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment and secrets (never commit)
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+*.env
+!.env.example
+
+# Build and output
+dist/
+**/dist/
+build/
+**/build/
+*.tsbuildinfo
+.artifacts/
+out/
+
+# Logs and runtime
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE and editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python (venv, cache)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Package manager caches
+.pnpm-store/
+.npm/
+.yarn/
+*.tgz
+
+# Test and coverage
+coverage/
+.nyc_output/
+*.lcov
+.vitest/
+
+# Temporary
+tmp/
+temp/
+*.tmp
+.cache/
+
