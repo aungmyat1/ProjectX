@@ -61,6 +61,8 @@ npm run openclaw -- gateway
 
 Config and state are stored in **`.openclaw/`** (e.g. `.openclaw/openclaw.json`). You can point OpenClaw at `configs/` and `agents/` via that config or via ClawX Settings when using the desktop app.
 
+**Connecting and working with the ClawX agent:** see **[Connect and work with ClawX agent](docs/CLAWX_AGENT.md)** for workspace setup, mapping `agents/*.yaml` to OpenClaw config, and running the gateway together with ProjectX.
+
 ### Gateway via Docker
 
 ```bash
