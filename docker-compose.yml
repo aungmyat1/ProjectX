@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  openclaw-gateway:
+    build:
+      context: ./ClawX/resources/openclaw
+      dockerfile: Dockerfile
+    env_file:
+      - ./ClawX/.env
+    ports:
+      - "3030:3030"
+    restart: unless-stopped
+    volumes:
+      - ./configs:/projectx/configs:ro
+      - ./agents:/projectx/agents:ro
+      - ./logs:/projectx/logs
+      - ./memory:/projectx/memory
+
