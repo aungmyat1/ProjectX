@@ -1,0 +1,30 @@
+#!/usr/bin/env sh
+# ProjectX OpenClaw CLI wrapper (Git Bash / WSL / macOS / Linux)
+# Uses OPENCLAW_STATE_DIR = <ProjectX>/.openclaw so config/state live in the repo.
+# Run from ProjectX root: ./openclaw [command] [args...]
+
+set -e
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECTX_ROOT="$SCRIPT_DIR"
+STATE_DIR="$PROJECTX_ROOT/.openclaw"
+CLAW_CLI_DIR="$PROJECTX_ROOT/ClawX/resources/cli"
+CLAW_OPENCLAW_DIR="$PROJECTX_ROOT/ClawX/resources/openclaw"
+OPENCLAW_MJS="$CLAW_OPENCLAW_DIR/openclaw.mjs"
+
+export OPENCLAW_STATE_DIR="$STATE_DIR"
+export OPENCLAW_EMBEDDED_IN="${OPENCLAW_EMBEDDED_IN:-ClawX}"
+
+# Prefer ClawX-bundled CLI when present (macOS/Linux app layout)
+if [ -x "$CLAW_CLI_DIR/openclaw" ]; then
+  exec "$CLAW_CLI_DIR/openclaw" "$@"
+fi
+
+# Fallback: run node openclaw.mjs from bundled openclaw
+if [ -f "$OPENCLAW_MJS" ]; then
+  (cd "$CLAW_OPENCLAW_DIR" && exec node openclaw.mjs "$@")
+  exit 0
+fi
+
+echo "openclaw: No ClawX CLI or openclaw.mjs found." >&2
+echo "  Ensure ClawX/resources/cli/openclaw exists (Unix) or use npm run openclaw (Node wrapper)." >&2
+exit 1

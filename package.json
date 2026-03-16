@@ -1,0 +1,16 @@
+{
+  "name": "projectx",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ProjectX – ClawX / OpenClaw layout for AI trading and product agents",
+  "scripts": {
+    "openclaw": "node scripts/openclaw-wrapper.mjs",
+    "openclaw:ps1": "powershell -NoProfile -ExecutionPolicy Bypass -File openclaw.ps1",
+    "gateway": "docker compose up -d openclaw-gateway",
+    "gateway:build": "docker compose build openclaw-gateway",
+    "gateway:logs": "docker compose logs -f openclaw-gateway",
+    "gateway:down": "docker compose down"
+  },
+  "keywords": ["clawx", "openclaw", "ai", "agents", "gateway"],
+  "license": "UNLICENSED"
+}

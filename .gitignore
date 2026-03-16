@@ -26,6 +26,9 @@ out/
 *.log
 logs/
 
+# OpenClaw state (config, sessions, credentials) when using ProjectX CLI
+.openclaw/
+
 # OS
 .DS_Store
 Thumbs.db

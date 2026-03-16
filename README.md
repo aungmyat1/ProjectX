@@ -37,3 +37,36 @@ Edit `configs/models.yaml` to change routing. In ClawX, set **Settings → Provi
 ## Agents
 
 Use these YAMLs as templates. Point ClawX/OpenClaw at `agents/` if it supports loading from a directory. Each agent has a model and tools (web_search, news_scraper, python, etc.) and memory settings.
+
+## ClawX / OpenClaw CLI
+
+ProjectX includes wrappers so the OpenClaw CLI uses **state under this repo** (`OPENCLAW_STATE_DIR=.openclaw`), keeping config and sessions in one place.
+
+### Run from ProjectX root
+
+| Method | Command |
+|--------|--------|
+| **npm** | `npm run openclaw -- [args]` (e.g. `npm run openclaw -- --version`, `npm run openclaw -- gateway`) |
+| **Windows PowerShell** | `.\openclaw.ps1 [args]` |
+| **Git Bash / WSL** | `./openclaw [args]` |
+
+Examples:
+
+```bash
+npm run openclaw -- --version
+npm run openclaw -- setup
+npm run openclaw -- gateway
+.\openclaw.ps1 channels list
+```
+
+Config and state are stored in **`.openclaw/`** (e.g. `.openclaw/openclaw.json`). You can point OpenClaw at `configs/` and `agents/` via that config or via ClawX Settings when using the desktop app.
+
+### Gateway via Docker
+
+```bash
+npm run gateway        # start openclaw-gateway in background
+npm run gateway:logs   # follow logs
+npm run gateway:down   # stop
+```
+
+The Compose service mounts `configs/`, `agents/`, `logs/`, and `memory/` from ProjectX.
