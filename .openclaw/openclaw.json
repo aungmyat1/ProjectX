@@ -1,9 +1,4 @@
 {
-  "meta": {
-    "version": "2026.3.13",
-    "deploymentType": "projectx-integrated",
-    "optimizedFor": "multi-agent-vps"
-  },
   "gateway": {
     "mode": "local",
     "bind": "lan",
@@ -63,14 +58,15 @@
           "openrouter/anthropic/claude-3.5-sonnet"
         ]
       },
-      "bootstrapMaxChars": 12000,
-      "bootstrapTotalMaxChars": 80000,
+      "bootstrapMaxChars": 9000,
+      "bootstrapTotalMaxChars": 60000,
+      "imageMaxDimensionPx": 1000,
       "contextPruning": {
         "mode": "cache-ttl"
       },
       "compaction": {
-        "maxHistoryShare": 0.6,
-        "recentTurnsPreserve": 3,
+        "maxHistoryShare": 0.5,
+        "recentTurnsPreserve": 2,
         "model": "openrouter/minimax/minimax-01",
         "memoryFlush": {
           "enabled": true
@@ -79,7 +75,7 @@
       "heartbeat": {
         "model": "openrouter/google/gemini-flash-1.5",
         "lightContext": true,
-        "every": "30m",
+        "every": "60m",
         "activeHours": {
           "start": "08:00",
           "end": "22:00",
@@ -90,6 +86,7 @@
         "model": "openrouter/minimax/minimax-01",
         "maxConcurrent": 4
       },
+      "contextTokens": 120000,
       "maxConcurrent": 2
     },
     "list": [
@@ -97,8 +94,7 @@
         "id": "main",
         "default": true,
         "name": "ClawX Main Assistant",
-        "workspace": "C:/ProjectX/workspace",
-        "description": "Primary personal assistant with full capabilities"
+        "workspace": "C:/ProjectX/workspace"
       },
       {
         "id": "analysis",
@@ -106,8 +102,7 @@
         "workspace": "C:/ProjectX/workspace-analysis",
         "model": {
           "primary": "openrouter/anthropic/claude-3.5-sonnet"
-        },
-        "description": "Heavy reasoning and high-stakes analysis (use sparingly)"
+        }
       },
       {
         "id": "vps",
@@ -116,9 +111,16 @@
         "model": {
           "primary": "openrouter/deepseek/deepseek-chat"
         },
-        "description": "VPS infrastructure management and DevOps specialist",
         "tools": {
           "allow": ["exec", "read", "write", "edit", "web_search", "sessions_spawn"]
+        }
+      },
+      {
+        "id": "ops",
+        "name": "Ops Monitor",
+        "workspace": "C:/ProjectX/workspace",
+        "model": {
+          "primary": "openrouter/google/gemini-flash-1.5"
         }
       }
     ]
