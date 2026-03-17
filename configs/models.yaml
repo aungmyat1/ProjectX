@@ -1,0 +1,19 @@
+routing:
+  default: minimax/minimax-01
+
+  fast:
+    model: google/gemini-flash-1.5
+    max_tokens: 1000
+
+  coding:
+    model: deepseek/deepseek-chat
+    max_tokens: 2000
+
+  analysis:
+    model: anthropic/claude-3.5-sonnet
+    max_tokens: 3000
+
+  ultra_cheap:
+    model: google/gemini-flash-1.5
+    temperature: 0.3
+    max_tokens: 500

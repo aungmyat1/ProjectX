@@ -1,11 +1,11 @@
-# Research agent – market/data research for AI trading system
-agent: research_agent
+# Heavy reasoning agent – use sparingly for hard decisions
+agent: heavy_reasoning_agent
 
 model: analysis  # Heavy reasoning (anthropic/claude-3.5-sonnet)
 
 tools:
   - web_search
-  - news_scraper
+  - python
 
 memory:
   short_term: true

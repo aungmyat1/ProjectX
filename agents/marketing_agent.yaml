@@ -9,3 +9,7 @@ tools:
 memory:
   short_term: true
   long_term: true
+
+# Token optimization
+max_tokens: 1000
+temperature: 0.3

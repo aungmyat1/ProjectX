@@ -1,7 +1,7 @@
 # Market agent – market analysis for AI trading
 agent: market_agent
 
-model: analysis  # Use routing for cost optimization (now qwen/qwen3.5-9b)
+model: analysis  # Heavy reasoning (anthropic/claude-3.5-sonnet)
 
 tools:
   - web_search
@@ -11,3 +11,7 @@ tools:
 memory:
   short_term: true
   long_term: true
+
+# Token optimization
+max_tokens: 3000
+temperature: 0.2

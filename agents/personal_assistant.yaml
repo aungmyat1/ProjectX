@@ -1,7 +1,7 @@
 # Personal Assistant Agent - Optimized for daily tasks and productivity
 agent: personal_assistant
 
-model: assistant  # Use dedicated assistant routing for optimal performance (google/gemini-flash-1.5)
+model: fast  # Fast responses with low cost (google/gemini-flash-1.5)
 
 tools:
   - web_search
@@ -22,8 +22,8 @@ memory:
   context_window: 100000  # Optimized context for personal conversations
 
 # Token optimization for performance
-max_tokens: 2048  # Shorter responses for faster interaction
-temperature: 0.8  # Creative but focused responses
+max_tokens: 1000  # Aligned with fast routing cap
+temperature: 0.3  # Lower variance for cheaper, faster replies
 
 # Personal assistant specific settings
 personality: helpful, efficient, proactive

@@ -9,22 +9,23 @@ This ClawX gateway is optimized for personal assistant and AI coaching use cases
 ### Personal Assistant (`personal_assistant`)
 - **Purpose**: Daily productivity, task management, information retrieval
 - **Model**: Google Gemini Flash 1.5 (fast responses)
-- **Token Limit**: 2048 (quick interactions)
+- **Token Limit**: 1000 (quick interactions)
 - **Tools**: Notes, reminders, calendar, weather, music, web search
 
 ### AI Coach (`ai_coach`)
 - **Purpose**: Teaching AI models, prompt engineering, performance optimization
-- **Model**: Qwen 3.5-9B (balanced reasoning)
-- **Token Limit**: 4096 (detailed explanations)
+- **Model**: MiniMax-01 (balanced reasoning, low cost)
+- **Token Limit**: 2000 (detailed explanations)
 - **Tools**: Coding agent, model usage analysis, session logs, GitHub
 
 ## Token Usage Optimization
 
 ### Performance-Focused Routing
 ```
-assistant: google/gemini-flash-1.5  # Fast for personal tasks
-coach: qwen/qwen3.5-9b            # Balanced for teaching
-default: qwen/qwen3.5-9b          # Cost-effective general use
+default: minimax/minimax-01           # Cost-effective general use
+fast: google/gemini-flash-1.5         # Fast for personal tasks
+coding: deepseek/deepseek-chat        # Coding and debugging
+analysis: anthropic/claude-3.5-sonnet # Heavy reasoning (rare)
 ```
 
 ### Cost Savings

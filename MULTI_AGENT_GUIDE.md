@@ -11,6 +11,7 @@ ProjectX/
 ├── workspace/                 # Main agent workspace  
 ├── workspace-research/        # Research agent workspace
 ├── workspace-trading/         # Trading agent workspace
+├── workspace-analysis/        # Heavy reasoning agent workspace
 └── agents/                    # Agent templates (YAML)
     ├── research_agent.yaml
     ├── personal_assistant.yaml
@@ -71,6 +72,15 @@ copy C:\ProjectX\workspace\TOOLS.md C:\ProjectX\workspace-research\
           "primary": "openrouter/anthropic/claude-sonnet-4"
         },
         "description": "Market analysis and trading assistant"
+      },
+      {
+        "id": "analysis",
+        "name": "Heavy Reasoning",
+        "workspace": "C:/ProjectX/workspace-analysis",
+        "model": {
+          "primary": "openrouter/anthropic/claude-3.5-sonnet"
+        },
+        "description": "Heavy reasoning and high-stakes analysis (use sparingly)"
       }
     ]
   }

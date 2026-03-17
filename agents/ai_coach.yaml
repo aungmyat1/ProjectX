@@ -1,7 +1,7 @@
 # AI Coaching Agent - For teaching, training, and optimizing AI models
 agent: ai_coach
 
-model: coach  # Use dedicated coach routing for optimal performance (qwen/qwen3.5-9b)
+model: default  # Cost-optimized general reasoning (minimax/minimax-01)
 
 tools:
   - coding-agent
@@ -19,7 +19,7 @@ memory:
   context_window: 200000  # Larger context for complex coaching sessions
 
 # Token optimization for coaching performance
-max_tokens: 4096  # Longer responses for detailed explanations
+max_tokens: 2000  # Aligned with default routing cap
 temperature: 0.6  # Balanced creativity and accuracy for teaching
 
 # AI coaching specific settings

@@ -28,8 +28,40 @@
   "agents": {
     "defaults": {
       "workspace": "C:/ProjectX/workspace",
+      "models": {
+        "openrouter/google/gemini-flash-1.5": {
+          "alias": "fast",
+          "params": {
+            "maxTokens": 1000,
+            "temperature": 0.3
+          }
+        },
+        "openrouter/minimax/minimax-01": {
+          "alias": "default",
+          "params": {
+            "maxTokens": 2000
+          }
+        },
+        "openrouter/deepseek/deepseek-chat": {
+          "alias": "coding",
+          "params": {
+            "maxTokens": 2000
+          }
+        },
+        "openrouter/anthropic/claude-3.5-sonnet": {
+          "alias": "analysis",
+          "params": {
+            "maxTokens": 3000,
+            "temperature": 0.2
+          }
+        }
+      },
       "model": {
-        "primary": "openrouter/anthropic/claude-sonnet-4"
+        "primary": "openrouter/minimax/minimax-01",
+        "fallbacks": [
+          "openrouter/google/gemini-flash-1.5",
+          "openrouter/anthropic/claude-3.5-sonnet"
+        ]
       },
       "bootstrapMaxChars": 12000,
       "bootstrapTotalMaxChars": 80000,
@@ -39,13 +71,13 @@
       "compaction": {
         "maxHistoryShare": 0.6,
         "recentTurnsPreserve": 3,
-        "model": "openrouter/anthropic/claude-sonnet-4",
+        "model": "openrouter/minimax/minimax-01",
         "memoryFlush": {
           "enabled": true
         }
       },
       "heartbeat": {
-        "model": "openrouter/anthropic/claude-haiku-3.5",
+        "model": "openrouter/google/gemini-flash-1.5",
         "lightContext": true,
         "every": "30m",
         "activeHours": {
@@ -55,7 +87,7 @@
         }
       },
       "subagents": {
-        "model": "openrouter/anthropic/claude-sonnet-4",
+        "model": "openrouter/minimax/minimax-01",
         "maxConcurrent": 4
       },
       "maxConcurrent": 2
@@ -69,11 +101,20 @@
         "description": "Primary personal assistant with full capabilities"
       },
       {
+        "id": "analysis",
+        "name": "Heavy Reasoning",
+        "workspace": "C:/ProjectX/workspace-analysis",
+        "model": {
+          "primary": "openrouter/anthropic/claude-3.5-sonnet"
+        },
+        "description": "Heavy reasoning and high-stakes analysis (use sparingly)"
+      },
+      {
         "id": "vps",
         "name": "VPS Manager",
         "workspace": "C:/ProjectX/workspace-vps",
         "model": {
-          "primary": "openrouter/anthropic/claude-sonnet-4"
+          "primary": "openrouter/deepseek/deepseek-chat"
         },
         "description": "VPS infrastructure management and DevOps specialist",
         "tools": {
