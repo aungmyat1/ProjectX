@@ -65,3 +65,6 @@ temp/
 *.tmp
 .cache/
 
+# Nested repo (has its own .git; avoid "does not have a commit checked out" on add)
+workspace/
+

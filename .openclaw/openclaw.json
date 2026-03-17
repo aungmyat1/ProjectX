@@ -67,6 +67,18 @@
         "name": "ClawX Main Assistant",
         "workspace": "C:/ProjectX/workspace",
         "description": "Primary personal assistant with full capabilities"
+      },
+      {
+        "id": "vps",
+        "name": "VPS Manager",
+        "workspace": "C:/ProjectX/workspace-vps",
+        "model": {
+          "primary": "openrouter/anthropic/claude-sonnet-4"
+        },
+        "description": "VPS infrastructure management and DevOps specialist",
+        "tools": {
+          "allow": ["exec", "read", "write", "edit", "web_search", "sessions_spawn"]
+        }
       }
     ]
   },
