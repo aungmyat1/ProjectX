@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "version": "2026.3.13",
+    "deploymentType": "projectx-integrated",
+    "optimizedFor": "multi-agent-vps"
+  },
+  "gateway": {
+    "mode": "local",
+    "bind": "lan",
+    "port": 3210,
+    "auth": {
+      "mode": "token",
+      "token": "px-13343f5449dc84d4f55c1550523e16d5a8b2c9f4e7a1b0d8"
+    },
+    "controlUi": {
+      "allowedOrigins": [
+        "file://",
+        "https://your-domain.com",
+        "http://localhost:3000"
+      ]
+    }
+  },
+  "browser": {
+    "enabled": true,
+    "defaultProfile": "openclaw",
+    "headless": false
+  },
+  "agents": {
+    "defaults": {
+      "workspace": "C:/ProjectX/workspace",
+      "model": {
+        "primary": "openrouter/anthropic/claude-sonnet-4"
+      },
+      "bootstrapMaxChars": 12000,
+      "bootstrapTotalMaxChars": 80000,
+      "contextPruning": {
+        "mode": "cache-ttl"
+      },
+      "compaction": {
+        "maxHistoryShare": 0.6,
+        "recentTurnsPreserve": 3,
+        "model": "openrouter/anthropic/claude-sonnet-4",
+        "memoryFlush": {
+          "enabled": true
+        }
+      },
+      "heartbeat": {
+        "model": "openrouter/anthropic/claude-haiku-3.5",
+        "lightContext": true,
+        "every": "30m",
+        "activeHours": {
+          "start": "08:00",
+          "end": "22:00",
+          "timezone": "Asia/Rangoon"
+        }
+      },
+      "subagents": {
+        "model": "openrouter/anthropic/claude-sonnet-4",
+        "maxConcurrent": 4
+      },
+      "maxConcurrent": 2
+    },
+    "list": [
+      {
+        "id": "main",
+        "default": true,
+        "name": "ClawX Main Assistant",
+        "workspace": "C:/ProjectX/workspace",
+        "description": "Primary personal assistant with full capabilities"
+      }
+    ]
+  },
+  "tools": {
+    "profile": "full",
+    "sessions": {
+      "visibility": "all"
+    }
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "channels": {
+    "discord": {
+      "enabled": true,
+      "token": "YOUR_DISCORD_BOT_TOKEN_HERE",
+      "groupPolicy": "allowlist",
+      "dm": {
+        "enabled": false
+      },
+      "retry": {
+        "attempts": 3,
+        "minDelayMs": 500,
+        "maxDelayMs": 30000,
+        "jitter": 0.1
+      },
+      "guilds": {
+        "1221046992050982962": {
+          "users": ["*"],
+          "requireMention": true,
+          "channels": {
+            "*": {
+              "allow": true,
+              "requireMention": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  }
+}

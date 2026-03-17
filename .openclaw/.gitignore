@@ -1,0 +1,12 @@
+# OpenClaw state directory - keep config, ignore runtime data
+/agents/*/sessions/
+/credentials/
+/cache/
+/logs/
+*.log
+*.sqlite
+*.db
+restart-sentinel.json
+
+# Keep example configs
+!openclaw.json
